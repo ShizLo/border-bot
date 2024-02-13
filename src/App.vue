@@ -4,19 +4,6 @@ import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
-  <!-- <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="50" height="50" />
-
-    <div class="wrapper">
-      <HelloWorld msg="Сосновый Бор" />
-      <nav>
-        <RouterLink to="/">Требования</RouterLink>
-        <RouterLink to="/about">Гарантии</RouterLink>
-        <RouterLink to="/contact">Контакты</RouterLink>
-      </nav>
-    </div>
-  </header> -->
-
   <div class="header">
     <div class="header__content">
       <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="40" height="40" />
@@ -26,7 +13,6 @@ import HelloWorld from './components/HelloWorld.vue'
           <span></span>
           <span></span>
         </div>
-
         <nav class="menu__body">
           <img alt="Vue logo" class="menu_logo" src="@/assets/logo.svg" width="40" height="40" />
           <ul role="list" class="menu__list">
@@ -47,12 +33,7 @@ import HelloWorld from './components/HelloWorld.vue'
     </div>
   </div>
   <div class="wrapper">
-    <HelloWorld msg="Служба в Сосновом Бору" />
-    <!-- <nav>
-        <RouterLink to="/">Требования</RouterLink>
-        <RouterLink to="/about">Гарантии</RouterLink>
-        <RouterLink to="/contact">Контакты</RouterLink>
-      </nav> -->
+    <HelloWorld msg="Служба в городе Сосновом Бору" />
   </div>
 
   <RouterView />
@@ -105,15 +86,17 @@ import HelloWorld from './components/HelloWorld.vue'
   &__list {
     li {
       margin: 0 0 0 0;
-      padding: 0px 15px;
+      padding: 0px 0px;
       &:last-child {
         margin: 0px 0px 0px 0px;
       }
-      &::after {
-        content: '';
-        display: block;
-        height: 1px;
-        background: #424245;
+      @media (max-width: 767.98px) {
+        &::after {
+          content: '';
+          display: block;
+          height: 1px;
+          background: #424245;
+        }
       }
     }
     @media (min-width: 767.98px) {
@@ -137,11 +120,11 @@ import HelloWorld from './components/HelloWorld.vue'
     text-decoration: none;
     color: #000;
     &._active {
-      color: #ff6464;
+      color: greenyellow;
     }
     @media (min-width: 991.98px) {
       &:hover {
-        color: #ff6464;
+        color: green;
       }
     }
     @media (max-width: 767.98px) {
@@ -202,22 +185,25 @@ import HelloWorld from './components/HelloWorld.vue'
 // }
 
 .logo {
-  position: absolute;
-  top: 0;
-  left: 45%;
-  display: block;
-  /* margin: 0 auto 2rem; */
-  margin: 0 auto;
+  display: none;
+  @media (max-width: 767.98px) {
+    position: absolute;
+    top: 0;
+    left: 45%;
+    display: block;
+    /* margin: 0 auto 2rem; */
+    margin: 0 auto;
+  }
 }
 .menu_logo {
-  // padding-top: 1rem;
-
-  position: absolute;
-  top: 1rem;
-  left: 45%;
-  display: block;
-  /* margin: 0 auto 2rem; */
-  margin: 0 auto;
+  display: none;
+  @media (max-width: 767.98px) {
+    position: absolute;
+    top: 1rem;
+    left: 45%;
+    display: block;
+    margin: 0 auto;
+  }
 }
 
 // nav {

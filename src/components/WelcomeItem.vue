@@ -7,23 +7,25 @@
       <h3>
         <slot name="heading"></slot>
       </h3>
-     
     </div>
   </div>
   <div>
-     <slot></slot>
+    <slot></slot>
   </div>
- 
 </template>
 
 <style scoped>
 .item {
-  margin-top: 2rem;
+  /* margin-top: 2rem; */
   display: flex;
   position: relative;
 }
 
 .details {
+  @media (min-width: 1024px) {
+    margin-left: 3rem;
+  }
+
   flex: 1;
   margin-left: 1rem;
 }
@@ -45,10 +47,10 @@ h3 {
 }
 
 @media (min-width: 1024px) {
-  .item {
+  /* .item {
     margin-top: 0;
     padding: 0.4rem 0 1rem calc(var(--section-gap) / 2);
-  }
+  } */
 
   i {
     top: calc(50% - 25px);
