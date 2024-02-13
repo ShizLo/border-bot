@@ -1,33 +1,46 @@
 <template>
-  <div class="item">
-    <i>
-      <slot name="icon"></slot>
-    </i>
-    <div class="details">
-      <h3>
-        <slot name="heading"></slot>
-      </h3>
+  <v-card elevation="1" class="flex-1-1">
+    <div class="item bg-grey-lighten-5 py-3 pr-3 pl-4">
+      <i>
+        <slot name="icon"></slot>
+      </i>
+      <div class="details ml-1">
+        <h3 class="text-black ml-1 text-md-h5 text-lg-h5 text-xl-h5">
+          <slot name="heading"></slot>
+        </h3>
+      </div>
     </div>
-  </div>
-  <div>
-    <slot></slot>
-  </div>
+    <v-divider color="blue-darken-4" class="pb-2"></v-divider>
+    <div class="px-3 mb-2">
+      <slot></slot>
+    </div>
+  </v-card>
 </template>
 
 <style scoped>
 .item {
-  /* margin-top: 2rem; */
+  /* margin: 1.5rem 0px; */
   display: flex;
   position: relative;
+  @media (max-width: 767.98px) {
+    /* margin-top: 1.5rem; */
+    /* margin-bottom: 0.5rem; */
+  }
 }
-
+.hero {
+  background: url("../assets/bkinfo.png");
+  background-size: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
 .details {
+  display: flex;
+  width: 100%;
+  margin: auto;
   @media (min-width: 1024px) {
-    margin-left: 3rem;
   }
 
-  flex: 1;
-  margin-left: 1rem;
+  /* flex: 1; */
 }
 
 i {
@@ -36,14 +49,11 @@ i {
   place-content: center;
   width: 32px;
   height: 32px;
-  color: var(--color-text);
 }
 
 h3 {
   font-size: 1.2rem;
   font-weight: 500;
-  margin-bottom: 0.4rem;
-  color: var(--color-heading);
 }
 
 @media (min-width: 1024px) {
@@ -54,9 +64,9 @@ h3 {
 
   i {
     top: calc(50% - 25px);
-    left: -26px;
-    position: absolute;
-    border: 1px solid var(--color-border);
+    /* left: -26px; */
+    /* position: absolute; */
+    /* border: 1px solid var(--color-border); */
     background: var(--color-background);
     border-radius: 8px;
     width: 50px;
@@ -64,7 +74,7 @@ h3 {
   }
 
   .item:before {
-    content: ' ';
+    content: " ";
     border-left: 1px solid var(--color-border);
     position: absolute;
     left: 0;
@@ -73,7 +83,7 @@ h3 {
   }
 
   .item:after {
-    content: ' ';
+    content: " ";
     border-left: 1px solid var(--color-border);
     position: absolute;
     left: 0;

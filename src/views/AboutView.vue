@@ -1,11 +1,9 @@
 <script setup>
-import WelcomeItem from '../components/WelcomeItem.vue'
+import WelcomeItem from '../components/InfoItem.vue'
 import ToolingIcon from '../components/icons/IconTooling.vue'
 </script>
 
-<template>
-  
-</template>
+<template></template>
 
 <style>
 .about {
