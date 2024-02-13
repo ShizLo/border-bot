@@ -1,6 +1,5 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
@@ -32,11 +31,17 @@ import HelloWorld from './components/HelloWorld.vue'
       </div>
     </div>
   </div>
-  <div class="wrapper">
-    <HelloWorld msg="Служба в городе Сосновом Бору" />
-  </div>
-
   <RouterView />
+  <footer class="footer">
+    <div class="footer__content _container">
+      <div class="footer__social social">
+        <a href="" class="social__item icon-google-plus2"></a>
+        <a href="" class="social__item icon-telegram"></a>
+        <a href="" class="social__item icon-vk"></a>
+      </div>
+      <div class="footer__copy">© 2024</div>
+    </div>
+  </footer>
 </template>
 
 <style lang="scss" scoped>
@@ -46,8 +51,6 @@ import HelloWorld from './components/HelloWorld.vue'
   &__content {
     margin: 0 auto;
     max-width: 1052px;
-
-    //todo прилипание работает не правильно
   }
 
   &__menu {
@@ -179,11 +182,6 @@ import HelloWorld from './components/HelloWorld.vue'
   }
 }
 
-// header {
-//   line-height: 1.5;
-//   max-height: 100vh;
-// }
-
 .logo {
   display: none;
   @media (max-width: 767.98px) {
@@ -206,55 +204,25 @@ import HelloWorld from './components/HelloWorld.vue'
   }
 }
 
-// nav {
-//   width: 100%;
-//   font-size: 14px;
-//   text-align: center;
-//   margin-top: 2rem;
-// }
+.footer {
+  // .footer__content
+  text-align: center;
+  padding: 40px 0px;
+  @media (max-width: 767.98px) {
+    padding: 30px 0;
+  }
+  &__content {
+  }
 
-// nav a.router-link-exact-active {
-//   color: var(--color-text);
-// }
+  // .footer__social
 
-// nav a.router-link-exact-active:hover {
-//   background-color: transparent;
-// }
+  &__social {
+    margin: 0px 0px 25px 0px;
+  }
 
-// nav a {
-//   display: inline-block;
-//   padding: 0 1rem;
-//   border-left: 1px solid var(--color-border);
-// }
+  // .footer__copy
 
-// nav a:first-of-type {
-//   border: 0;
-// }
-
-// @media (min-width: 1024px) {
-//   header {
-//     display: flex;
-//     place-items: center;
-//     padding-right: calc(var(--section-gap) / 2);
-//   }
-
-//   .logo {
-//     margin: 0 2rem 0 0;
-//   }
-
-//   header .wrapper {
-//     display: flex;
-//     place-items: flex-start;
-//     flex-wrap: wrap;
-//   }
-
-//   nav {
-//     text-align: left;
-//     margin-left: -1rem;
-//     font-size: 1rem;
-
-//     padding: 1rem 0;
-//     margin-top: 1rem;
-//   }
-// }
+  &__copy {
+  }
+}
 </style>
