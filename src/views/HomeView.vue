@@ -11,7 +11,7 @@ import CaseIcon from "../components/icons/IconCase.vue";
 
 <template>
   <v-card>
-    <Header msg="Служба в Сосновом Бору"></Header>
+    <Header msg="Служба в Сосновом Бору"></Header> 
   </v-card>
   <SliderInfo class="d-md-none d-lg-none d-xl-none d-xxl-none" />
   <VideoInfo class="d-sm-none d-md-none d-lg-none d-xl-none d-xxl-none" />
