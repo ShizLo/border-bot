@@ -111,7 +111,7 @@ import CaseIcon from "../components/icons/IconCase.vue";
           <li>Вещевое обеспечение.</li>
           <li>Оплачиваемый отпуск до <i>60</i> суток.</li>
           <li>Предоставление служебного жилья.</li>
-          <li>Военная ипотека ().</li>
+          <li>Военная ипотека.</li>
         </div>
       </InfoItem>
     </v-col>
@@ -183,16 +183,15 @@ import CaseIcon from "../components/icons/IconCase.vue";
           <li class="">Предоставление документов.</li>
           <li class="">Собеседование.</li>
           <li class="pb-2">Прохождение ВВК и ПФО.</li>
-          <v-divider></v-divider>
+          <v-divider class="mb-1"></v-divider>
           <!-- Сделать вертикальное выравнивание блока -->
           <div class="d-flex">
-            <v-icon color="red">mdi-alert-circle-outline</v-icon>
-
-            <p class="ml-1">Переводами из других ведомств не занимаемся.</p>
+            <v-icon class="d-flex align-self-center" color="red">mdi-alert-circle-outline</v-icon>
+            <p class="ml-1 text-caption align-self-center">Переводами из других ведомств не занимаемся.</p>
           </div>
 
-          <v-divider></v-divider>
-          <div class="text-left pt-4 pb-1">
+          <v-divider class="mt-1"></v-divider>
+          <div class="text-left pt-3 pb-1">
             <v-dialog v-model="dialog2" max-width="380" persistent>
               <template v-slot:activator="{ props: activatorProps2 }">
                 <v-btn
@@ -547,7 +546,7 @@ export default {
         },
         {
           question:
-            "Числитесь ли Вы или Ваши близкие родственники (мать, отец, брат, сестра) на учете в психодиспансере, наркодиспансере?",
+            "Числитесь ли Вы или Ваши близкие родственники (мать, отец, брат, сестра) на учете в психдиспансере, наркодиспансере?",
           answer: "Нет",
         },
         {
