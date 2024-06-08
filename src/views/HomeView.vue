@@ -11,7 +11,7 @@ import CaseIcon from "../components/icons/IconCase.vue";
 
 <template>
   <v-card>
-    <Header msg="Служба в Сосновом Бору"></Header> 
+    <Header msg="Служба в Сосновом Бору"></Header>
   </v-card>
   <SliderInfo class="d-md-none d-lg-none d-xl-none d-xxl-none" />
   <VideoInfo class="d-sm-none d-md-none d-lg-none d-xl-none d-xxl-none" />
@@ -111,7 +111,7 @@ import CaseIcon from "../components/icons/IconCase.vue";
           <li>Вещевое обеспечение.</li>
           <li>Оплачиваемый отпуск до <i>60</i> суток.</li>
           <li>Предоставление служебного жилья.</li>
-          <li>Военная ипотека.</li>
+          <li>Военная ипотека ().</li>
         </div>
       </InfoItem>
     </v-col>
@@ -184,6 +184,14 @@ import CaseIcon from "../components/icons/IconCase.vue";
           <li class="">Собеседование.</li>
           <li class="pb-2">Прохождение ВВК и ПФО.</li>
           <v-divider></v-divider>
+          <!-- Сделать вертикальное выравнивание блока -->
+          <div class="d-flex">
+            <v-icon color="red">mdi-alert-circle-outline</v-icon>
+
+            <p class="ml-1">Переводами из других ведомств не занимаемся.</p>
+          </div>
+
+          <v-divider></v-divider>
           <div class="text-left pt-4 pb-1">
             <v-dialog v-model="dialog2" max-width="380" persistent>
               <template v-slot:activator="{ props: activatorProps2 }">
@@ -203,7 +211,7 @@ import CaseIcon from "../components/icons/IconCase.vue";
               <v-card>
                 <div class="d-flex">
                   <h3 class="ml-6 py-2 mt-2">
-                    Вопрос {{numberQuestion + 1}} из {{questions.length}}
+                    Вопрос {{ numberQuestion + 1 }} из {{ questions.length }}
                   </h3>
                   <v-spacer />
                   <v-btn
@@ -497,8 +505,7 @@ export default {
           answer: "Да",
         },
         {
-          question:
-            "Ваш возраст от 18 до 40 лет?",
+          question: "Ваш возраст от 18 до 40 лет?",
           answer: "Да",
         },
         {
@@ -506,26 +513,36 @@ export default {
             "Вы имеете среднее (11 классов) или средне-специальное (колледж, техникум) или высшее образование?",
           answer: "Да",
         },
+        // {
+        //   question: "Имеете ли Вы недвижимость за границей?",
+        //   answer: "Нет",
+        // },
         {
-          question: "Имеете ли Вы недвижимость за границей?",
+          question:
+            "Имеете ли Вы или Ваши близкие родственники гражданство других стран или основания для постоянного проживания за границей?",
+          answer: "Нет",
+        },
+        // {
+        //   question:
+        //     "Проживают ли Ваши близкие родственники (мать, отец, брат, сестра) за границей или имеют вид на жительство?",
+        //   answer: "Нет",
+        // },
+        // {
+        //   question: "Были ли у Ваc приводы в полицию?",
+        //   answer: "Нет",
+        // },
+        // {
+        //   question: "Лишали ли Вас водительских прав?",
+        //   answer: "Нет",
+        // },
+        {
+          question:
+            "Имеете ли Вы серьезные заболевания (в том числе психические)? Для мужчин: Ваша категория годности к военной службе: В или Г или Д?",
           answer: "Нет",
         },
         {
           question:
-            "Проживают ли Ваши близкие родственники (мать, отец, брат, сестра) за границей или имеют вид на жительство?",
-          answer: "Нет",
-        },
-        {
-          question: "Были ли у Ваc приводы в полицию?",
-          answer: "Нет",
-        },
-        {
-          question: "Лишали ли Вас водительских прав?",
-          answer: "Нет",
-        },
-        {
-          question:
-            "Привлекались ли Вы или Ваши близкие родственники (мать, отец, брат, сестра) к уголовной ответственности?",
+            "Привлекались ли Вы или Ваши близкие родственники (мать, отец, брат, сестра) к уголовной ответственности за тяжкие или особо тяжкие преступления?",
           answer: "Нет",
         },
         {
@@ -548,13 +565,12 @@ export default {
       ) {
         if (this.radioValue == this.questions[this.numberQuestion].answer) {
           this.countRightAnswer++;
-        }
-        else {
+        } else {
           let answers = {
             question: this.questions[this.numberQuestion].question,
-            answer: this.radioValue
-          }
-          this.falseAnswers.push(answers)
+            answer: this.radioValue,
+          };
+          this.falseAnswers.push(answers);
         }
         this.numberQuestion++;
         this.radioValue = "";
@@ -574,28 +590,27 @@ export default {
           this.snackbar = true;
           this.stepperItem = 1;
           this.disableButton = true;
-          var my_text = `Доступ открыт.`
-          this.sendMessageTG(my_text)
+          var my_text = `Доступ открыт.`;
+          this.sendMessageTG(my_text);
         } else {
-
           this.colorSnack = "red-darken-4";
           this.textSnackBar = "Отказано в доступе";
           this.snackbar = true;
           this.disableButton = true;
-          var fAnswer = ""
+          var fAnswer = "";
           this.falseAnswers.forEach((ans) => {
-            fAnswer = fAnswer + ans.question + "%0A"
-          })
-          
-          var my_text = `Отказано в доступе.%0AВопросы по которым отказано:%0A${fAnswer}`
-          
-          this.sendMessageTG(my_text)
+            fAnswer = fAnswer + ans.question + "%0A";
+          });
+
+          var my_text = `Отказано в доступе.%0AВопросы по которым отказано:%0A${fAnswer}`;
+
+          this.sendMessageTG(my_text);
         }
       }
     },
     startTest() {
-      var my_text = `Начало опроса.`
-      this.sendMessageTG(my_text)
+      var my_text = `Начало опроса.`;
+      this.sendMessageTG(my_text);
       this.numberQuestion = 0;
       this.countRightAnswer = 0;
       this.lastQuestion = false;
@@ -603,14 +618,14 @@ export default {
     },
     sendMessageTG(my_text) {
       // var my_text = `Регион: Москва%0AРезультат: Успех`
-      var token = "7169968585:AAGyXAfkhGg6iqvabBNCyWQmziuKSTDhb6k"
-      var chat_id = -1002215519960
-      var url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${my_text}`
-      let api = new XMLHttpRequest()
-      api.open("GET", url, true)
-      api.send()
+      var token = "7169968585:AAGyXAfkhGg6iqvabBNCyWQmziuKSTDhb6k";
+      var chat_id = -1002215519960;
+      var url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${my_text}`;
+      let api = new XMLHttpRequest();
+      api.open("GET", url, true);
+      api.send();
       // https://api.telegram.org/bot7169968585:AAGyXAfkhGg6iqvabBNCyWQmziuKSTDhb6k/getUpdates
-    }
+    },
   },
 };
 </script>
