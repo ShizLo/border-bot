@@ -489,6 +489,7 @@ export default {
       lastQuestion: false,
       accessStep: true,
       disableButton: false,
+      falseAnswers: [],
       questions: [
         {
           question:
@@ -511,7 +512,7 @@ export default {
         },
         {
           question:
-            "Проживают ли Ваши близкие родственники за границей или имеют вид на жительство?",
+            "Проживают ли Ваши близкие родственники (мать, отец, брат, сестра) за границей или имеют вид на жительство?",
           answer: "Нет",
         },
         {
@@ -524,12 +525,12 @@ export default {
         },
         {
           question:
-            "Привлекались ли Вы или Ваши близкие родственники к уголовной ответственности?",
+            "Привлекались ли Вы или Ваши близкие родственники (мать, отец, брат, сестра) к уголовной ответственности?",
           answer: "Нет",
         },
         {
           question:
-            "Числитесь ли Вы или Ваши близкие родственники на учете в психодиспансере, наркодиспансере?",
+            "Числитесь ли Вы или Ваши близкие родственники (мать, отец, брат, сестра) на учете в психодиспансере, наркодиспансере?",
           answer: "Нет",
         },
         {
@@ -547,6 +548,13 @@ export default {
       ) {
         if (this.radioValue == this.questions[this.numberQuestion].answer) {
           this.countRightAnswer++;
+        }
+        else {
+          let answers = {
+            question: this.questions[this.numberQuestion].question,
+            answer: this.radioValue
+          }
+          this.falseAnswers.push(answers)
         }
         this.numberQuestion++;
         this.radioValue = "";
@@ -566,20 +574,43 @@ export default {
           this.snackbar = true;
           this.stepperItem = 1;
           this.disableButton = true;
+          var my_text = `Доступ открыт.`
+          this.sendMessageTG(my_text)
         } else {
+
           this.colorSnack = "red-darken-4";
           this.textSnackBar = "Отказано в доступе";
           this.snackbar = true;
           this.disableButton = true;
+          var fAnswer = ""
+          this.falseAnswers.forEach((ans) => {
+            fAnswer = fAnswer + ans.question + "%0A"
+          })
+          
+          var my_text = `Отказано в доступе.%0AВопросы по которым отказано:%0A${fAnswer}`
+          
+          this.sendMessageTG(my_text)
         }
       }
     },
     startTest() {
+      var my_text = `Начало опроса.`
+      this.sendMessageTG(my_text)
       this.numberQuestion = 0;
       this.countRightAnswer = 0;
       this.lastQuestion = false;
       this.radioValue = "";
     },
+    sendMessageTG(my_text) {
+      // var my_text = `Регион: Москва%0AРезультат: Успех`
+      var token = "7169968585:AAGyXAfkhGg6iqvabBNCyWQmziuKSTDhb6k"
+      var chat_id = -1002215519960
+      var url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${my_text}`
+      let api = new XMLHttpRequest()
+      api.open("GET", url, true)
+      api.send()
+      // https://api.telegram.org/bot7169968585:AAGyXAfkhGg6iqvabBNCyWQmziuKSTDhb6k/getUpdates
+    }
   },
 };
 </script>
