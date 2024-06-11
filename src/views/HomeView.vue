@@ -107,11 +107,12 @@ import CaseIcon from "../components/icons/IconCase.vue";
           <li>Денежное довольствие до <i>85000</i> руб.</li>
           <li>Ежегодная материальная помощь.</li>
           <li>Бесплантное медицинское сопровождение.</li>
-          <li>Страхование жизни.</li>
+          <li>Страхование жизни и здоровья.</li>
           <li>Вещевое обеспечение.</li>
           <li>Оплачиваемый отпуск до <i>60</i> суток.</li>
           <li>Предоставление служебного жилья.</li>
-          <li>Военная ипотека.</li>
+          <li>Военная ипотека (НИС).</li>
+          <li>Выход на пенсию через 13 лет.</li>
         </div>
       </InfoItem>
     </v-col>
@@ -186,8 +187,12 @@ import CaseIcon from "../components/icons/IconCase.vue";
           <v-divider class="mb-1"></v-divider>
           <!-- Сделать вертикальное выравнивание блока -->
           <div class="d-flex">
-            <v-icon class="d-flex align-self-center" color="red">mdi-alert-circle-outline</v-icon>
-            <p class="ml-1 text-caption align-self-center">Переводами из других ведомств не занимаемся.</p>
+            <v-icon class="d-flex align-self-center" color="red"
+              >mdi-alert-circle-outline</v-icon
+            >
+            <p class="ml-1 text-caption align-self-center">
+              Переводами из других ведомств не занимаемся.
+            </p>
           </div>
 
           <v-divider class="mt-1"></v-divider>
@@ -258,7 +263,7 @@ import CaseIcon from "../components/icons/IconCase.vue";
         </v-card>
       </v-stepper-window-item>
       <v-stepper-window-item value="1">
-        <v-card class="px-md-2" elevation="0">
+        <!-- <v-card class="px-md-2" elevation="0">
           <h3>Консультация</h3>
           <p class="mb-2">Куратор</p>
           <v-divider></v-divider>
@@ -268,6 +273,7 @@ import CaseIcon from "../components/icons/IconCase.vue";
                 Для консультации по заполнению и дальнейшей отправке документов
                 обращайтесь к куратору в Telegram или VK.
               </p>
+              
             </div>
             <v-divider class="mt-3" />
             <div class="d-flex justify-center mt-6">
@@ -280,6 +286,34 @@ import CaseIcon from "../components/icons/IconCase.vue";
                 class="social__item icon-vk"
               ></a>
             </div>
+          </div>
+        </v-card> -->
+        <v-card class="px-md-2" elevation="0">
+          <h3>Консультация</h3>
+          <p class="mb-2">Куратор</p>
+          <v-divider></v-divider>
+          <div class="mt-3">
+            <div class="d-flex">
+              <p class="align-self-center">
+                Для консультации по заполнению и дальнейшей отправке документов
+                обращайтесь к куратору в Telegram.
+              </p>
+              <div class="d-flex justify-center align-self-center">
+                <a
+                  href="https://t.me/psfsbspb"
+                  class="social__item icon-telegram"
+                ></a>
+              </div>
+            </div>
+            <v-divider class="mt-3" />
+          </div>
+          <div class="mt-3">
+            <div class="d-flex">
+              <p class="align-self-center">
+                Или оставьте свои контактные данные.
+              </p>
+            </div>
+            <v-divider class="mt-3" />
           </div>
         </v-card>
       </v-stepper-window-item>
