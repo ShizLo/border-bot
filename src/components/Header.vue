@@ -21,7 +21,7 @@
       </h3>
       <div class="d-flex justify-center pt-1 pb-2">
         <v-icon>mdi-map-marker-outline</v-icon>
-        <p class="ml-2 text-black">г. Сосновый Бор, ул. Советская</p>
+        <p class="ml-2 text-black">г. Сосновый Бор, ул. Советская, 63</p>
       </div>
       <div class="px-3">
         <v-btn

@@ -307,14 +307,14 @@ import CaseIcon from "../components/icons/IconCase.vue";
             </div>
             <v-divider class="mt-3" />
           </div>
-          <div class="mt-3">
+          <!-- <div class="mt-3">
             <div class="d-flex">
               <p class="align-self-center">
                 Или оставьте свои контактные данные.
               </p>
             </div>
             <v-divider class="mt-3" />
-          </div>
+          </div> -->
         </v-card>
       </v-stepper-window-item>
       <v-stepper-window-item value="2">
