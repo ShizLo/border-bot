@@ -11,6 +11,7 @@ export default defineConfig({
     vue(),
     vuetify({ autoImport: true, lang: { locales: { ru }, current: "ru" } }), // Enabled by default
   ],
+
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
