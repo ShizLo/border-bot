@@ -1,22 +1,26 @@
 <template>
   <div class="greetings">
+    <div class="header-wrap"></div>
     <v-card class="pb-3 hero" elevation="0">
       <div class="d-flex justify-center pt-2">
         <img
           alt="Работа по контракту"
           class="logo"
-          src="@/assets/IMG_2619.png"
+          src="@/assets/IMG_2619.webp"
           width="100"
           height="100"
         />
       </div>
 
-      <h1
+      <!-- <h1
         class="text-black text-center font-weight-black text-h5 text-md-h4 text-lg-h4 text-xl-h4 mt-2"
+      > -->
+      <h1
+        class="text-black text-center text-h5 text-md-h4 text-lg-h4 text-xl-h4 mt-2"
       >
         {{ msg }}
       </h1>
-      <h3 class="text-center text-black font-weight-black text-subtitle-1">
+      <h3 class="text-center text-black text-subtitle-1">
         Набор кандидатов на контракт
       </h3>
       <div class="d-flex justify-center pt-1 pb-2">
@@ -39,11 +43,20 @@
 </template>
 
 <style style="scss" scoped>
-.hero {
-  background: url("../assets/hback.png");
+.v-card--variant-elevated {
+  background-color: rgba(255, 255, 255, 0);
+}
+.header-wrap {
+  background: url("../assets/hback.webp");
   background-size: no-repeat;
   background-position: center;
   background-size: cover;
+  position: absolute;
+  opacity: 0.7;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 .intro {
   text-align: center;
@@ -70,6 +83,7 @@ h3 {
 .greetings h1,
 .greetings h3 {
   text-align: center;
+  position: relative;
 }
 
 @media (min-width: 1024px) {

@@ -127,7 +127,7 @@ import CaseIcon from "../components/icons/IconCase.vue";
     <v-stepper-header>
       <v-stepper-item
         title="Опрос"
-        subtitle="10 мин"
+        subtitle="3 мин"
         editable
         color="green"
         class="py-4"
@@ -289,23 +289,46 @@ import CaseIcon from "../components/icons/IconCase.vue";
           </div>
         </v-card> -->
         <v-card class="px-md-2" elevation="0">
-          <h3>Консультация</h3>
-          <p class="mb-2">Куратор</p>
+          <div class="d-flex justify-space-between">
+            <div>
+              <div class="d-flex">
+                <!-- <h3>Консультация</h3> -->
+                <h3>Вы идеальный кандидат</h3>
+              </div>
+              <p class="mb-2">Связь с куратором</p>
+            </div>
+            <div class="d-flex justify-center align-self-center">
+              <a
+                href="https://t.me/psfsbspb"
+                class="social__item icon-telegram"
+              ></a>
+            </div>
+          </div>
           <v-divider></v-divider>
           <div class="mt-3">
-            <div class="d-flex">
+            <div class="d-flex flex-wrap">
               <p class="align-self-center">
-                Для консультации по заполнению и дальнейшей отправке документов
-                обращайтесь к куратору в Telegram.
+                Для консультации по следующим шагам трудоустройства обращайтесь
+                к куратору в Telegram, или оставьте Ваши контактные данные в
+                поле ниже и нажмите на кнопку отправить. С Вами свяжутся в
+                ближайшее время.
               </p>
-              <div class="d-flex justify-center align-self-center">
-                <a
-                  href="https://t.me/psfsbspb"
-                  class="social__item icon-telegram"
-                ></a>
-              </div>
             </div>
             <v-divider class="mt-3" />
+            <div class="d-flex mt-4">
+              <v-text-field
+                :loading="loading"
+                density="compact"
+                label="Введите номер телефона или адрес электронной почты"
+                variant="outlined"
+                hide-details
+                single-line
+                @click:append-inner="onClick"
+              ></v-text-field>
+              <v-icon class="ml-2 d-flex align-self-center" size="x-large"
+                >mdi-send</v-icon
+              >
+            </div>
           </div>
           <!-- <div class="mt-3">
             <div class="d-flex">
