@@ -1,41 +1,12 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterView } from "vue-router";
 </script>
 
 <template>
-  <div class="header">
-    <div class="header__content">
-      
-       <!-- <div class="header__menu menu">
-        <div class="menu__icon icon-menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <nav class="menu__body">
-          <img alt="Vue logo" class="menu_logo" src="@/assets/logo.svg" width="40" height="40" />
-          <img
-            alt="Vue logo"
-            class="menu_logo"
-            src="@/assets/IMG_2619.png"
-            width="40"
-            height="40"
-          />
-         
-        </nav>
-      </div>  -->
-    </div>
-  </div>
   <RouterView />
   <footer class="footer">
     <div class="footer__content _container">
-      <!-- <div class="footer__message"><p>Если Вы заинтересованы и подходите по всем критериям, переходите по ссылкам ниже и оставляйте Вашу заявку</p>
-      </div>
-      <div class="footer__social social">
-        <a href="https://t.me/psfsbspb" class="social__item icon-telegram"></a>
-        <a href="https://vk.com/id48935027" class="social__item icon-vk"></a>
-      </div> -->
-      <div class="footer__copy">© 2024</div>
+      <div class="footer__copy">© 2025</div>
     </div>
   </footer>
 </template>
@@ -55,9 +26,6 @@ import { RouterLink, RouterView } from 'vue-router'
     justify-content: flex-end;
     align-items: center;
     padding: 0px 0px;
-    // @media (max-width: 767.98px) {
-    //   height: 40px;
-    // }
   }
 }
 
@@ -91,7 +59,7 @@ import { RouterLink, RouterView } from 'vue-router'
       }
       @media (max-width: 767.98px) {
         &::after {
-          content: '';
+          content: "";
           display: block;
           height: 1px;
           background: #424245;
@@ -106,7 +74,7 @@ import { RouterLink, RouterView } from 'vue-router'
     }
   }
   &__list::before {
-    content: '';
+    content: "";
     display: block;
     // position:absolute;
     height: 1px;
